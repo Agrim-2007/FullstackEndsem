@@ -5,6 +5,7 @@ const Profile = ({ onLogout }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+  const apiUrl = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
     const fetchProfile = async () => {
@@ -15,7 +16,7 @@ const Profile = ({ onLogout }) => {
         return;
       }
       try {
-        const response = await fetch('http://localhost:3000/profile', {
+        const response = await fetch(`${apiUrl}/profile`, {
           method: 'GET',
           headers: {
             'Authorization': `Bearer ${token}`,

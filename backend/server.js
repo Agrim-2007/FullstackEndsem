@@ -13,7 +13,7 @@ const JWT_SECRET = process.env.JWT_SECRET;
 app.use(cors());
 app.use(express.json());
 
-// Middleware to verify JWT
+
 const authenticateToken = (req, res, next) => {
   const token = req.header('Authorization')?.replace('Bearer ', '');
   if (!token) return res.status(401).json({ error: 'Access denied' });
@@ -27,7 +27,6 @@ const authenticateToken = (req, res, next) => {
   }
 };
 
-// Signup route
 app.post('/signup', async (req, res) => {
   const { name, email, password } = req.body;
 
@@ -52,7 +51,7 @@ app.post('/signup', async (req, res) => {
   }
 });
 
-// Login route
+
 app.post('/login', async (req, res) => {
   const { email, password } = req.body;
 
@@ -78,7 +77,6 @@ app.post('/login', async (req, res) => {
   }
 });
 
-// Profile route
 app.get('/profile', authenticateToken, async (req, res) => {
   try {
     const user = await prisma.user.findUnique({ where: { id: req.user.id } });
