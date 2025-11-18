@@ -50,8 +50,8 @@ Frontend → Backend (API) → Database → Payment Gateway
 - MySQL or MongoDB
 
 ### Hosting
-- Frontend: Vercel 
-- Backend: Render 
+- Frontend: [Vercel](https://fullstack-endsem.vercel.app) 
+- Backend: [Render](https://fullstackendsem.onrender.com) 
 
 ---
 
